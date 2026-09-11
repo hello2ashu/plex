@@ -1,0 +1,24 @@
+services:
+  plex:
+    image: ghcr.io/linuxserver/plex:latest
+    container_name: Plex
+    hostname: plex
+    network_mode: host
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://localhost:32400/identity"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    volumes:
+      - /volume1/docker/plex:/config:rw
+      - /volume1/movies/media:/movies:ro
+    environment:
+      TZ: America/Los_Angeles
+      PUID: 1026
+      PGID: 100
+      VERSION: public
+      PLEX_CLAIM: claim-xXJERqyQ_xNs4j2kUyY6
+    restart: on-failure:5
