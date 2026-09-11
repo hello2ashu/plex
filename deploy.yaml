@@ -15,10 +15,10 @@ services:
     volumes:
       - /volume1/docker/plex:/config:rw
       - /volume1/Media/Movies:/movies:ro
-      - /volume1/Media/Music:music:ro
-      - /volume1/Media/Religious:Religious:ro
-      - /volume1/Media/Seasons:Seasons:ro
-      - /volume1/Media/Yoga:Yoga:ro
+      - /volume1/Media/Music:/music:ro
+      - /volume1/Media/Religious:/Religious:ro
+      - /volume1/Media/Seasons:/Seasons:ro
+      - /volume1/Media/Yoga:/Yoga:ro
     environment:
       TZ: America/Los_Angeles
       PUID: 1026
