@@ -25,8 +25,11 @@ services:
       PGID: 100
       VERSION: public
 #      PLEX_CLAIM: claim-xXJERqyQ_xNs4j2kUyY6
-    mem_limit: 4g       # bump to 4g if you regularly transcode 4K
-    cpus: "3.0"         # caps worst-case transcode CPU so it doesn't starve other stacks
+    mem_limit: 2g       # bump to 4g if you regularly transcode 4K
+    # cpus: not supported on this Synology kernel (no CFS bandwidth controller).
+    # cpu_shares is a relative weight, not a hard cap, but works everywhere cgroups exist.
+    # 1024 = default weight; lower it if you want other stacks favored during transcodes.
+    cpu_shares: 1024
     logging:
       driver: "json-file"
       options:
