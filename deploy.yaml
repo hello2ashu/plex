@@ -25,7 +25,7 @@ services:
       PGID: 100
       VERSION: public
 #      PLEX_CLAIM: claim-xXJERqyQ_xNs4j2kUyY6
-    mem_limit: 2g       # bump to 4g if you regularly transcode 4K
+    mem_limit: 4g       # bump to 4g if you regularly transcode 4K
     cpus: "3.0"         # caps worst-case transcode CPU so it doesn't starve other stacks
     logging:
       driver: "json-file"
